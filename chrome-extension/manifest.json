@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "果库风商品评价",
+  "description": "右键网页链接或图片，生成克制、有画面感的果库风商品短评。",
+  "version": "0.2.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "果库风评价"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["guoku-engine.js", "content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["activeTab", "contextMenus", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"]
+}
