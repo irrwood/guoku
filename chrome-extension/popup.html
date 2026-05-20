@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>果库风评价</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>果库风评价</h1>
+      </header>
+
+      <label>
+        类型
+        <select id="type">
+          <option value="link">商品链接</option>
+          <option value="image">图片链接</option>
+        </select>
+      </label>
+
+      <label>
+        链接
+        <input id="url" type="url" placeholder="https://example.com/product" />
+      </label>
+
+      <label>
+        商品线索
+        <textarea id="text" rows="4" placeholder="例如：高硼硅玻璃杯，耐热耐冷，适合冷饮热饮"></textarea>
+      </label>
+
+      <section class="settings">
+        <label class="toggle">
+          <input id="aiEnabled" type="checkbox" />
+          启用 AI API
+        </label>
+
+        <label>
+          API 地址
+          <input id="apiBaseUrl" type="url" placeholder="https://api.openai.com/v1/chat/completions" />
+        </label>
+
+        <label>
+          模型
+          <input id="model" type="text" placeholder="gpt-4o-mini" />
+        </label>
+
+        <label>
+          API Key
+          <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+        </label>
+
+        <button id="saveSettings" type="button" class="secondary">保存 AI 设置</button>
+      </section>
+
+      <button id="evaluate" type="button">生成评价</button>
+
+      <section id="result" aria-live="polite">
+        <p>右键网页里的商品链接或图片，也可以直接生成。</p>
+      </section>
+    </main>
+    <script src="guoku-engine.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
